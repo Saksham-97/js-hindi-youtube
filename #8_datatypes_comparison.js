@@ -43,3 +43,9 @@
 // console.log(x <= y)
 // console.log(x <== y) // <== is not any operator
 
+let id = Symbol('123')
+const newId = Symbol('123')
+console.log(id === newId);
+
+// though the id and newId have same values they are not equal, becasue we uses the Symbol dataype
+
