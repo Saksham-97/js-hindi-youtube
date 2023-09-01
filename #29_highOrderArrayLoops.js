@@ -107,4 +107,36 @@ myCoding.forEach( (item)=> {
     console.log(item.languageName) // every object inside this array is item
 } )
 
+// sort method
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+const sortedFruits = fruits.sort();
+// console.log(sortedFruits)
+
+const veggies = ["potato", "eggplant", "gord", "ladyfinger"]
+const reversedVeggies = veggies.reverse()
+// console.log(reversedVeggies)
+
+// we can use sort and reverse together also (called: chaining)
+// console.log(fruits.sort().reverse())
+
+// Sorting alphabetically works well for strings ("Apple" comes before "Banana").
+// But, sorting numbers can produce incorrect results.
+// "25" is bigger than "100", because "2" is bigger than "1".
+// You can fix this by providing a "compare function"
+
+
+// syntax: array.sort(compareFunction)
+
+const points = [40, 100, 1, 5, 25, 138, 10];
+// const sortedPoints = points.sort( (firstValue, secondValue) => (firstValue - secondValue) ) // to sort in ascending order
+// const sortedPoints = points.sort( (firstValue, secondValue) => (secondValue - firstValue) ) // to sort in descending order
+// console.log(sortedPoints)
+
+// to find the highest numnber in an array, a simple trick is to first sort the array in descending order than print the first element
+// console.log(`Highest values: ${sortedPoints[0]}`)
+
+// or we can also write the same in single line
+const highestNumber = points.sort( (a, b) => (b - a) )[0]
+console.log(highestNumber)
 
