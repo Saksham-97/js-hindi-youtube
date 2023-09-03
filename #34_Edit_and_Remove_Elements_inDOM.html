@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit and remove elements in DOM</title>
+</head>
+
+<body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+
+
+    <script>
+
+        // we want to add a list item in our ul
+
+        // very basic method:
+        // let's desing a function to add the element
+        function addLanguage(langName) {
+            const addLi = document.createElement('li')
+            addLi.innerHTML = `${langName}`
+            document.querySelector('.language').appendChild(addLi)
+        }
+        addLanguage("python")
+        addLanguage("Java")
+        // the problem with above function is that it have to add the element at very last so it do the whole tree traverse
+
+        // an optimized way to do the same is:
+        function addOptiLanguage(langName) {
+            const addLi = document.createElement('li')
+            addLi.appendChild(document.createTextNode(langName))
+            document.querySelector('.language').appendChild(addLi)
+        }
+        addOptiLanguage("Typescript")
+        addOptiLanguage("Ruby")
+
+        function addMoreLanguage(langName) {
+            const addLi = document.createElement('li')
+            addLi.appendChild(document.createTextNode(langName))
+            document.querySelector('.language').appendChild(addLi)
+        }
+        addMoreLanguage("Swift")
+
+        function lang(langName) {
+            const addLi = document.createElement('li')
+            addLi.appendChild(document.createTextNode(langName))
+            document.querySelector('.language').appendChild(addLi)
+        }
+        lang("Assembly")
+
+
+
+        // Edit
+        const secondLang = document.querySelector('li:nth-child(2)')
+        // console.log(secondLang)
+        // secondLang.innerHTML = "Mojo" // this is not an optmized approach
+
+        // let's create a new element to replace with
+        const newLi = document.createElement('li')
+        newLi.textContent = "C#"
+        secondLang.replaceWith(newLi)
+
+        // another example of Edit
+        const firstLang = document.querySelector('li:first-child')
+        // console.log(firstLang)
+        firstLang.outerHTML = '<li>Typescript</li>'
+
+        // you can use any approach, first thing is that the project should work, optimization is second thing
+
+        //Remove
+        const lastLang = document.querySelector('li:last-child')
+        lastLang.remove()
+
+
+
+    </script>
+</body>
+
+</html>
