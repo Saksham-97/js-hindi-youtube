@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM New</title>
+    <style>
+
+    </style>
+</head>
+
+<body style="background-color: #212121; color: #fff;">
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+        <div class="day">Friday</div>
+    </div>
+
+
+    <script>
+        const parent = document.querySelector(".parent")
+        // console.log(parent)
+        // console.log(parent.children) // tell us how many children are there in a particular node
+        // console.log(parent.children[1])
+        // console.log(parent.children[1].innerHTML)
+
+        //we can add a for on this html collection (on parent.children)
+
+        // for (let i = 0; i < parent.children.length; i++) {
+        //     console.log(parent.children[i].innerHTML)
+        // }
+
+        parent.children[1].style.color = 'orange'
+        // console.log(parent.firstChild) // select the first node of the selected 
+        // console.log(parent.lastChild) // select the last node of the selected 
+
+        const dayOne = document.querySelector('.day')
+        // console.log(dayOne)
+        // now if we want to jump to its parent element, we do not need to write the query selector again and again (as it is not convinient also takes resouces and time becasue javascrpit is single threaded language)
+        // we can do like this:
+        // console.log(dayOne.parentElement)
+        // we also can go to the next node of the element (sibling)
+        // console.log(dayOne.nextElementSibling)
+
+        // console.log("Nodes:", parent.childNodes) // childNodes is a cpmplex tree structure (of Document Object Model)
+        // even every line break (enter) is a node an can further have their own children/nodes
+        // even the comment counts
+        // note that only 1 line break is count, rest is not recognised by the browser
+
+        // now we want to create a new 'div' element in DOM
+
+        /*
+        const div = document.createElement('div')
+        console.log(div)
+        // now we want to add attributes to the created element
+        div.className = "main"
+        div.id = "myID"
+        // now if we want to add some custom attributes:
+        div.setAttribute("title", "generated-title")
+        div.style.height = "100px"
+        div.style.width = "100px"
+        div.style.backgroundColor = "hotpink"
+        div.style.padding = "12px"
+        // div.innerText = "created-div" // this is not an optmized method, because first it brings value from actual element than override it (it means one extra journey to and forth on single thread)
+        // however both methods are correct
+        // better way to insert text or anything inside the created element is:
+        // document.createTextNode("created-text") // hold this in a variable
+        const createdTextNode = document.createTextNode("created-text")
+        // now we can just add this node in the div
+        div.appendChild(createdTextNode)
+        
+        // note that above created div is inside a memory now, it will not show on page
+        // to attached this created div on to the document:
+        document.body.appendChild(div)
+
+        // we can also wrap this method inside a function and then use it accordingly
+        */
+
+        const createh1 = document.createElement('h1')
+        console.log(createh1)
+        createh1.style.color = "blue"
+        createh1.setAttribute("id", "main-heading")
+        createh1.setAttribute("class", "class-heading")
+        const addText = document.createTextNode("This is created heading")
+        createh1.appendChild(addText)
+        document.body.appendChild(createh1)
+
+        const createdDiv = document.createElement('div')
+        console.log(createdDiv)
+        createdDiv.setAttribute("id" , "second-div")
+        createdDiv.setAttribute("class" , "second-class")
+        const createDivText = document.createTextNode('Second Div Box')
+        createdDiv.appendChild(createDivText)
+        createdDiv.style.fontSize = "50px"
+        createdDiv.style.color = "blue"
+        createdDiv.style.backgroundColor = "yellow"
+        createdDiv.style.height = "fi-content"
+        createdDiv.style.width = "fit-content"
+        createdDiv.style.padding = "15px"
+        document.body.appendChild(createdDiv)
+
+        const thirdDiv = document.createElement('div')
+        console.log(thirdDiv)
+        thirdDiv.setAttribute("id", "third-div")
+        thirdDiv.setAttribute("class", "third-div-class")
+        const addText3 = document.createTextNode('This is third Div')
+        thirdDiv.appendChild(addText3)
+        thirdDiv.style.marginTop = "2rem"
+        thirdDiv.style.height = "fit-content"
+        thirdDiv.style.width = "fit-content"
+        thirdDiv.style.padding = "25px"
+        thirdDiv.style.backgroundColor = "blue"
+        thirdDiv.style.color = "orange"
+        thirdDiv.style.fontSize = "5rem"
+        document.body.appendChild(thirdDiv)
+
+    </script>
+</body>
+
+</html>
