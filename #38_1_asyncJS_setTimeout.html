@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asyn JS Projects</title>
+</head>
+
+<body>
+
+    <h1>Learning Javascript</h1>
+    <button id="stop">Stop</button>
+
+    <script>
+
+        // below functions are a method in themselves, but they also calls an API , these are not core function, we access these through browser
+
+        // setTimeout(function(){
+        //     console.log("Saksham")
+        // }, 2000)
+
+        // we can also write this like:
+        const sayMyName = function(){
+            console.log("Saksham")
+        }
+        setTimeout(sayMyName, 2000) // we do not execute 'sayMyName()' like this becasue in setTimeout function is a handler (function with no name), so we do not need to execute it
+
+        // another example:
+        const changeText =  function(){
+            document.querySelector('h1').innerHTML = "Best JS Series"
+        }
+        // setTimeout(changeText, 5000) // even if we take this inside a varibles, it still will be executed
+
+        const h1TExtChangeStop = setTimeout(changeText, 5000)
+
+        // now we by any chance need to stop then setTimeout
+        // we have method for this
+        // clearTimeout()
+
+        // clearTimeout(h1TExtChangeStop) // it basically clears the task queue
+
+        document.querySelector('#stop').addEventListener('click', function(){
+            clearTimeout(h1TExtChangeStop)
+            console.log("STOPPED")
+        })
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
