@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asyn JS Projects</title>
+</head>
+
+<body>
+
+    <h1>Coffee and Javascript</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+    <script>
+
+        //setInterval also have a third parame
+
+        // setInterval(function(){
+        //     console.log("Saksham")
+        // }, 10000)
+
+        // another way to write it:
+        // const sayDate = function(){
+        //     console.log("Saksham", Date.now())
+        // }
+        // setInterval(sayDate, 1000)
+
+        // setInterval also takes third parameters
+        // const sayDate = function (str) {
+        //     console.log(str, Date.now())
+        // }
+        // setInterval(sayDate, 1000, "Hi") // we also can hold up this in a variable
+
+        // const intervalId = setInterval(sayDate, 1000, "Hi")
+        //to stop the setInterval:
+
+        // clearInterval(intervalId) // removes the task from task queue
+
+        document.querySelector('#start').addEventListener('click', function () {
+            const sayDate = function () {
+                console.log("Saksham", Date.now())
+            }
+            const intervalId = setInterval(sayDate, 1000)
+
+            document.querySelector('#stop').addEventListener('click', function () {
+                clearInterval(intervalId)
+            })
+
+        })
+
+
+
+    </script>
+
+</body>
+
+</html>
